@@ -235,13 +235,13 @@ const Content = () => {
                             Total Value Locked
                         </Box>
                         <Box display={"flex"} width={"100%"} mt="20px" border={"1px solid #F5841F"}></Box>
-                        {/* <Box display={"flex"} width={"100%"} justifyContent={"space-between"} mt={"20px"}>
+                        <Box display={"flex"} width={"100%"} justifyContent={"space-between"} mt={"20px"}>
                             <CustomBtn width={"23%"} height="50px" hcolor="#7DAD3A" hgcolor="rgba(255, 255, 255, 0.1)" hborder={"1px solid black"} str="DATE" fsize={"16px"} fcolor={"white"} bgcolor="black" border="1.5px solid rgba(255, 255, 255, 0.7)" fweight={"400"} ffamily={'Russo One'} lheight={"19px"} />
                             <CustomBtn width={"23%"} height="50px" hcolor="#7DAD3A" hgcolor="rgba(255, 255, 255, 0.1)" hborder={"1px solid black"} str="FROM" fsize={"16px"} fcolor={"white"} bgcolor="black" border="1.5px solid rgba(255, 255, 255, 0.7)" fweight={"400"} ffamily={'Russo One'} lheight={"19px"} />
                             <CustomBtn width={"23%"} height="50px" hcolor="#7DAD3A" hgcolor="rgba(255, 255, 255, 0.1)" hborder={"1px solid black"} str="TO" fsize={"16px"} fcolor={"white"} bgcolor="black" border="1.5px solid rgba(255, 255, 255, 0.7)" fweight={"400"} ffamily={'Russo One'} lheight={"19px"} />
                             <CustomBtn width={"23%"} height="50px" hcolor="#7DAD3A" hgcolor="rgba(255, 255, 255, 0.1)" hborder={"1px solid black"} str="HERE" fsize={"16px"} fcolor={"white"} bgcolor="black" border="1.5px solid rgba(255, 255, 255, 0.7)" fweight={"400"} ffamily={'Russo One'} lheight={"19px"} />
-                        </Box> */}
-                        {/* <TableBox01>
+                        </Box>
+                        <TableBox01>
                             <Box display={"flex"} width={"100%"} mt={"20px"} height="60px">
                                 <TableTab01 borderRight={"1px solid rgba(255, 255, 255, 0.08)"}>ACTIVE</TableTab01>
                                 <TableTab01 borderRight={"1px solid rgba(255, 255, 255, 0.08)"}>INACTIVE</TableTab01>
@@ -292,7 +292,7 @@ const Content = () => {
                                 <ElementText01 display={"flex"} flex="1">1:00 AM 2022 - 12 - 30</ElementText01>
                                 <ElementText02 display={"flex"} flex="0.8">627.75 %</ElementText02>
                             </TableHeaderText01>
-                        </TableBox01> */}
+                        </TableBox01>
 
                         <Box display={"flex"} width="100%" justifyContent={"flex-end"} mt="150px">
                             <CustomBtn width={"140px"} height="43.7px" hcolor="white" hgcolor="#E27625" str="UNLOCK" fsize={"16px"} fcolor={"white"} bgcolor="#E27625" border="none" fweight={"400"} ffamily={'Russo One'} lheight={"19px"} />
@@ -316,7 +316,7 @@ const Content = () => {
                                 </Box>
                             </Box>
                         </JoinPart01>
-                        {/* <FootterPart01>
+                        <FootterPart01>
                             <Box display={"flex"} justifyContent="center" alignItems={"center"} mt="100px">
                                 <Box display={"flex"} alignItems="center">
                                     <img src={IMG_LeftSlide01} width="73px" height="11px" alt='' />
@@ -360,7 +360,7 @@ const Content = () => {
                                     <MdOutlineKeyboardArrowUp />
                                 </LinkLetter03>
                             </Box>
-                        </FootterPart01> */}
+                        </FootterPart01>
                     </DownPart01>
 
                 </Box>
@@ -855,10 +855,10 @@ const LetterBox07 = styled(Box)`
 `
 const TableBox01 = styled(Box)`
     display: flex;
-    /* width: 100%; */
+    width: 100%;
     flex-direction: column;
-    max-width: 1200px;
-    overflow-x: auto;
+    /* max-width: 1200px; */
+    /* overflow-x: auto; */
 `
 
 export default Content;
