@@ -3,16 +3,16 @@ import { WalletConnectConnector } from "@web3-react/walletconnect-connector";
 import { ethers } from "ethers";
 
 const IS_MAINNET = process.env.REACT_APP_NETWORK === 'mainnet';
-const chainId = IS_MAINNET? 56 : 97;
-const rpcUrl = IS_MAINNET? "https://bsc-dataseed.binance.org/" : "https://data-seed-prebsc-1-s1.binance.org:8545/";
-const scanUrl = IS_MAINNET? "https://bscscan.com" : "https://testnet.bscscan.com/";
+const chainId = IS_MAINNET? 1 : 4;
+const rpcUrl = IS_MAINNET? "https://mainnet.infura.io/v3/" : "https://rinkeby.infura.io/v3/";
+const scanUrl = IS_MAINNET? "https://etherscan.io" : "https://rinkeby.etherscan.io";
 
 const BINANCE_MAINNET_PARAMS = {
   chainId: chainId,
-  chainName: "Binance",
+  chainName: "Ether",
   nativeCurrency: {
-    name: "Binance",
-    symbol: "BNB",
+    name: "Ether",
+    symbol: "ETH",
     decimals: 18,
   },
   rpcUrls: [rpcUrl],

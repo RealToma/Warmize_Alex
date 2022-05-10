@@ -12,7 +12,7 @@ const CONTRACTS = IS_MAINNET
   }
 
 
-const HTTP_PROVIDER_URL = IS_MAINNET ? "https://bsc-dataseed.binance.org/" : "https://data-seed-prebsc-1-s1.binance.org:8545/";
+const HTTP_PROVIDER_URL = IS_MAINNET ? "https://mainnet.infura.io/v3/" : "https://rinkeby.infura.io/v3/";
 
 export {
   IS_MAINNET,

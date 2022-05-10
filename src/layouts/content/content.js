@@ -1,7 +1,7 @@
+import React, { useEffect, useState, useMemo } from "react";
 import { Box } from '@material-ui/core';
 import styled from "styled-components";
 import IMG_SHAPE01 from "../../assets/images/shapes.png"
-// import React, { useEffect, useState, useMemo } from "react";
 import CustomBtn from '../../components/CustomBtn';
 import CustomInput from "../../components/CustomInput";
 import IMG_Graph01 from "../../assets/images/Graph.png";
@@ -12,9 +12,18 @@ import IMG_LeftSlide02 from "../../assets/images/Frame (1).png";
 import IMG_Logo from "../../assets/images/logo 7.png";
 import { FaTwitter, FaTelegram, FaMediumM, FaYoutube, FaLinkedin, FaGithub, FaReddit } from "react-icons/fa";
 import { MdOutlineKeyboardArrowUp } from "react-icons/md";
+import { useWeb3React } from "@web3-react/core";
+import { ethers } from 'ethers';
+import { WARMIZ_ABI, EWARMIZ_ABI, SWARMIZ_ABI } from "../../utils/abi";
+import { CONTRACTS } from "../../utils/constants";
 
 
 const Content = () => {
+    const { account, active, library, activate } = useWeb3React();
+    const WARMIZE_Contract = useMemo(() => (library ? new ethers.Contract(CONTRACTS.WARMIZ_TOKEN, WARMIZ_ABI, library.getSigner()) : null), [library]);
+    const EWARMIZE_Contract = useMemo(() => (library ? new ethers.Contract(CONTRACTS.WARMIZ_ETOKEN, EWARMIZ_ABI, library.getSigner()) : null), [library]);
+    const SWARMIZE_Contract = useMemo(() => (library ? new ethers.Contract(CONTRACTS.WARMIZ_STOKEN, SWARMIZ_ABI, library.getSigner()) : null), [library]);
+
 
     return (
         <StyledComponent>

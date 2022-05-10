@@ -10,6 +10,8 @@ import { injected, walletConnect, trustWallet, binance_wallet } from "../../util
 
 
 const Topbar = () => {
+    const { account, active, activate } = useWeb3React();
+
     const DESKTOP_CONNECTORS = {
         MetaMask: injected,
         WalletConnect: walletConnect,
@@ -18,7 +20,7 @@ const Topbar = () => {
     };
     const walletConnectors = DESKTOP_CONNECTORS;
     const [addr, set_addr] = useState("CONNECT");
-    const { account, active, activate } = useWeb3React();
+
     const connect = async (currentConnector) => {
         try {
             await activate(walletConnectors[currentConnector]);
@@ -39,7 +41,7 @@ const Topbar = () => {
         else {
             set_addr("CONNECT");
         }
-    }, [active,account])
+    }, [active, account])
     return (
         <StyledComponent>
             <BackgroundBox>
