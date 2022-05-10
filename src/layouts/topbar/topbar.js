@@ -1,13 +1,45 @@
+import React, { useEffect, useState } from "react";
 import { Box } from '@material-ui/core';
 import styled from "styled-components";
-import React from "react";
 import IMG_Leftback from "../../assets/images/Frame 1.png";
 import IMG_Rightback from "../../assets/images/Frame 2.png";
 import IMG_Logo from "../../assets/images/logo 7.png";
 import CustomBtn from '../../components/CustomBtn';
+import { useWeb3React } from "@web3-react/core";
+import { injected, walletConnect, trustWallet, binance_wallet } from "../../utils/connectors";
+
 
 const Topbar = () => {
-    
+    const DESKTOP_CONNECTORS = {
+        MetaMask: injected,
+        WalletConnect: walletConnect,
+        BinanceWallet: binance_wallet,
+        TrustWallet: trustWallet,
+    };
+    const walletConnectors = DESKTOP_CONNECTORS;
+    const [addr, set_addr] = useState("CONNECT");
+    const { account, active, activate } = useWeb3React();
+    const connect = async (currentConnector) => {
+        try {
+            await activate(walletConnectors[currentConnector]);
+            window.localStorage.setItem("CurrentWalletConnect", currentConnector);
+        }
+        catch (e) {
+            console.log(e);
+        }
+    }
+    const set_account_addr = (addr) => {
+        return addr.slice(0, 6) + "..." + addr.slice(-4);
+    }
+
+    useEffect(() => {
+        if (active) {
+            set_addr(set_account_addr(account))
+        }
+        else {
+            set_addr("CONNECT");
+        }
+    }, [active,account])
     return (
         <StyledComponent>
             <BackgroundBox>
@@ -35,14 +67,16 @@ const Topbar = () => {
                     <ButtonBox>
                         <CustomBtn width={"100%"} height="100%" str="BUY $WARMIZ" fsize={"16px"} fcolor={"white"} bgcolor="black" border="1.5px solid rgba(255, 255, 255, 0.7)" fweight={"400"} ffamily={'Russo One'} lheight={"19px"} />
                     </ButtonBox>
-                    <ButtonBox01>
-                        <CustomBtn width={"100%"} height="100%" str="CONNECT" fsize={"16px"} fcolor={"black"} bgcolor="white" border="1.5px solid rgba(255, 255, 255, 0.7)" fweight={"400"} ffamily={'Russo One'} lheight={"19px"} />
+                    <ButtonBox01 onClick={() => {
+                        connect("MetaMask");
+                    }}>
+                        <CustomBtn width={"100%"} height="100%" str={addr} fsize={"16px"} fcolor={"black"} bgcolor="white" border="1.5px solid rgba(255, 255, 255, 0.7)" fweight={"400"} ffamily={'Russo One'} lheight={"19px"} />
                     </ButtonBox01>
                 </ButtonPart >
                 <EmptyBox></EmptyBox>
             </CenterPart>
 
-        </StyledComponent>
+        </StyledComponent >
     );
 }
 
